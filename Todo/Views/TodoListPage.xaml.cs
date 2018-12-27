@@ -17,14 +17,15 @@ namespace Todo
 
 			// Reset the 'resume' id, since we just want to re-start here
 			((App)App.Current).ResumeAtTodoId = -1;
-			listView.ItemsSource = await App.Database.GetItemsAsync();
+           
+            listView.ItemsSource = await App.Database.GetItemsAsync();
 		}
 
 		async void OnItemAdded(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new TodoItemPage
 			{
-				BindingContext = new TodoItem()
+				BindingContext = new TodoItem() { Children= new Models.ChildItem() { FirstName = "ChildItem", LastName = "ChildItem" } }
 			});
 		}
 

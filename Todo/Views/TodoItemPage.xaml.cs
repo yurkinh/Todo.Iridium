@@ -12,8 +12,8 @@ namespace Todo
 
 		async void OnSaveClicked(object sender, EventArgs e)
 		{
-			var todoItem = (TodoItem)BindingContext;
-			await App.Database.SaveItemAsync(todoItem);
+			var todoItem = (TodoItem)BindingContext;            
+            await App.Database.SaveItemAsync(todoItem);
 			await Navigation.PopAsync();
 		}
 
@@ -27,6 +27,6 @@ namespace Todo
 		async void OnCancelClicked(object sender, EventArgs e)
 		{
 			await Navigation.PopAsync();
-		}		
-	}
+		}       
+    }
 }

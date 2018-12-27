@@ -61,6 +61,8 @@ namespace Todo.UWP
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
                 Xamarin.Forms.Forms.Init(e);
+                var path = Path.Combine(ApplicationData.Current.LocalFolder.Path, "Iridium.db");
+                Console.WriteLine("Path=" + path);
                 SimpleIoc.Default.Register<IDataProvider>(() => new SqliteDataProvider(Path.Combine(ApplicationData.Current.LocalFolder.Path, "Iridium.db")));
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
